@@ -1,6 +1,7 @@
 const app = new Vue({
   el: "#app",
   data: {
+    friends: ["john", "sala"],
     john: {
       first: "john",
       last: "conner",
@@ -10,17 +11,6 @@ const app = new Vue({
       first: "sala",
       last: "conner",
       age: 55
-    }
-  },
-  computed: {
-    // johnFullName() {
-    //   return `${this.john.first} ${this.john.last}`;
-    // },
-    // salaFullName(){
-    //   return `${this.sala.first} ${this.sala.last}`
-    // },
-    johnAgeInOneYear() {
-      return this.john.age + 1;
     }
   },
   filters: {
@@ -33,11 +23,7 @@ const app = new Vue({
   },
   template: `
     <div>
-        <h1>Name: {{ john | fullName }}</h1>
-        <h2>Age: {{ john.age | ageInOneYear }}</h2>
-        <br>
-        <h1>Name: {{ sala | fullName }}</h1>
-        <h2>Age: {{ sala.age | ageInOneYear }}</h2>
+        <h2 v-for="friend in friends">{{ friend }}</h2>
     </div>
     `
 });
